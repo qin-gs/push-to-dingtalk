@@ -1,0 +1,39 @@
+# 钉钉推送相关
+dingtalk:
+  send_url: https://oapi.dingtalk.com/robot/send
+  access_token: xxx
+  secret: xxx
+
+# 新闻联播的 url
+xwlb:
+  top_id: TOPC1451528971114112
+  home_page: https://tv.cctv.com/lm/xwlb/
+  day_url: https://tv.cctv.com/lm/xwlb/day/{}.shtml
+  tag_url: https://vdn.apps.cntv.cn/api/getHttpVideoInfo.do?pid={}
+
+# 今日说法
+jrsf:
+  top_id: TOPC1451464665008914
+  home_page: https://tv.cctv.com/lm/jrsf/
+  day_url: https://api.cntv.cn/NewVideo/getVideoListByColumn?id=TOPC1451464665008914&n={}&sort=desc&p={}&mode=0&serviceId=tvcctv&cb=Callback
+  tag_url: https://vdn.apps.cntv.cn/api/getHttpVideoInfo.do?pid={}
+
+# 焦点访谈
+jdft:
+  top_id: TOPC1451558976694518
+  home_page: https://tv.cctv.com/lm/jdft/
+  day_url: https://api.cntv.cn/NewVideo/getVideoListByColumn?id=TOPC1451558976694518&n={}&sort=desc&p={}&d=&mode=0&serviceId=tvcctv&callback=lanmu_0
+  tag_url: https://vdn.apps.cntv.cn/api/getHttpVideoInfo.do?pid={}
+
+# 数据库
+mysql:
+  url: jdbc:mysql://localhost:3306/xw/
+  username: root
+  password: root
+mongo:
+  host: localhost
+  port: 27017
+  db_name: xw
+  username: root
+  password: root
+
