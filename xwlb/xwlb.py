@@ -11,6 +11,7 @@ from common.config import get_value_from_yaml
 from common.push import Messenger
 from mongo.mongo import insert_to_mongo, delete_from_mongo
 from parse_html import parse_html
+from common.time import get_current_time
 
 
 def get_sections(date: str) -> List[Dict[str, str]]:
@@ -90,13 +91,12 @@ def write_to_mongo(sections: List[Dict[str, str]]) -> None:
 
 
 # 调用函数获取当前时间
-# date, iso_time = get_current_time()
-date, iso_time = '20240413', ''
+date, iso_time = get_current_time()
 # 推送标题
 title = date + "新闻联播"
 
 if __name__ == '__main__':
     sections = get_sections(date)
-    # write_to_file(sections)
+    write_to_file(sections)
     delete_from_mongo('xwlb', date)
     write_to_mongo(sections)

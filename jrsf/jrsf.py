@@ -4,8 +4,9 @@ from typing import List, Dict
 import requests
 from lxml import etree
 from config import get_value_from_yaml
-from mongo.mongo import insert_to_mongo
+from mongo.mongo import insert_to_mongo, delete_from_mongo
 from parse_html import parse_html
+from common.time import get_current_time
 
 
 def get_content(date: str) -> Dict:
@@ -48,8 +49,7 @@ def write_to_mongo(content: Dict[str, str]) -> None:
 
 
 # 调用函数获取当前时间
-# date, iso_time = get_current_time()
-date, iso_time = '20240413', ''
+date, iso_time = get_current_time()
 # 推送标题
 title = date + "今日说法"
 
@@ -57,4 +57,6 @@ if __name__ == '__main__':
     content = get_content(date)
     print(content)
     write_to_file(content)
+
+    delete_from_mongo("jrsf", date)
     write_to_mongo(content)
