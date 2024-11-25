@@ -51,8 +51,8 @@ def write_to_mongo(content: Dict[str, str]) -> None:
 
 
 # 调用函数获取当前时间
-# date, iso_time = get_current_time()
-date, iso_time = get_yesterday_time()
+date, iso_time = get_current_time()
+# date, iso_time = get_yesterday_time()
 # 推送标题
 title = date + "今日说法"
 

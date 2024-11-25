@@ -18,7 +18,7 @@ auth_header = {
 
 def add_posts_to_wordpress():
     url = get_value_from_yaml_or_env('wordpress.posts')
-    data = get_data_from_MySql('tbl_jdft', '20241125')
+    data = get_data_from_MySql('tbl_jrsf', '20241125')
     date = datetime.now(pytz.timezone('UTC')).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     for item in data:
         # 首先上传一幅图片
@@ -29,7 +29,7 @@ def add_posts_to_wordpress():
             'title': item['title'],
             'status': 'publish',
             'content': item['content'] + "<a target=\"_blank\" href='" + item['video_url'] + "'>参考链接</a>",
-            'categories': 6,
+            'categories': 7,
             'date': date,
             "featured_media": media_id,
         }

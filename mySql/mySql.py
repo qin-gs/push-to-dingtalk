@@ -160,7 +160,7 @@ def get_data_from_MySql(table_name: str,
         conn_params = get_mysql_config()
 
     # 构造查询语句
-    select_query = f"SELECT * FROM {table_name} WHERE date = %s order by id desc"
+    select_query = f"SELECT * FROM {table_name} WHERE date = %s "
     connection = None
     cursor = None
 
