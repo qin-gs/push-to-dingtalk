@@ -1,10 +1,10 @@
 # 钉钉推送相关
 dingtalk:
   send_url: https://oapi.dingtalk.com/robot/send
-  access_token: xxx
-  secret: xxx
+  access_token: ${dingtalk_access_token}
+  secret: ${dingtalk_secret}
 
-# 新闻联播的 url
+# 新闻联播
 xwlb:
   top_id: TOPC1451528971114112
   home_page: https://tv.cctv.com/lm/xwlb/
@@ -27,13 +27,30 @@ jdft:
 
 # 数据库
 mysql:
-  url: jdbc:mysql://localhost:3306/xw/
-  username: root
-  password: root
+  url: jdbc:mySql://${web_host}:3306/tbl_news?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+  host: ${web_host}
+  port: 3306
+  db_name: db_news
+  username: ${mysql_username}
+  password: ${mysql_password}
 mongo:
   host: localhost
   port: 27017
-  db_name: xw
-  username: root
-  password: root
+  db_name: db_news
+  username: ${mongo_username}
+  password: ${mongo_password}
+pg:
+  host: 47.100.13.100
+  port: 5433
+  db_name: db1e80de8c3cea427e9c415084bf76160fdb_daily
+  username: ${pg_username}
+  password: ${pg_password}
+  web: https://cloud.memfiredb.com/
+
+wordpress:
+  username: ${wordpress_username}
+  password: ${wordpress_password}
+  posts: http://${web_host}/wp-json/wp/v2/posts
+  media: http://${web_host}/wp-json/wp/v2/media
+
 

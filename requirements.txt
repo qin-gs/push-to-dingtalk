@@ -1,0 +1,8 @@
+requests~=2.31.0
+lxml~=5.2.1
+pytz~=2024.1
+pymongo~=4.6.3
+mysql-connector-python~=9.1.0
+PyYAML~=6.0.1
+googletrans~=4.0.0rc1
+pillow~=11.0.0

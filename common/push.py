@@ -7,7 +7,7 @@ from urllib.parse import quote_plus
 
 import requests
 
-from common.config import get_value_from_yaml
+from common.config import get_value_from_yaml_or_env
 
 
 # 推送消息到钉钉
@@ -16,10 +16,10 @@ class Messenger:
 
     def __init__(self, token=None, secret=None):
         self.timestamp = str(round(time.time() * 1000))
-        self.URL = get_value_from_yaml("dingtalk.send_url")
+        self.URL = get_value_from_yaml_or_env("dingtalk.send_url")
         self.headers = {'Content-Type': 'application/json'}
-        self.token = token or get_value_from_yaml("dingtalk.access_token")
-        self.secret = secret or get_value_from_yaml("dingtalk.secret")
+        self.token = token or get_value_from_yaml_or_env("dingtalk.access_token")
+        self.secret = secret or get_value_from_yaml_or_env("dingtalk.secret")
         self.sign = self.generate_sign()
         self.params = {'access_token': self.token, 'sign': self.sign}
 
